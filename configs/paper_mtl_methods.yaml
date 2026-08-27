@@ -1,0 +1,60 @@
+schema_version: 1
+selection_dimensions:
+  base_model: Selects the shared multi-task model family.
+  optimization_strategy: Selects independent task balancing or gradient handling.
+
+methods:
+  hard_sharing:
+    model_type: hard_sharing
+    gradient_method: none
+    gradient_kwargs: {}
+    category: model_family
+    dimensions: {base_model: hard_sharing, optimization_strategy: none}
+  mmoe:
+    model_type: mmoe
+    gradient_method: none
+    gradient_kwargs: {}
+    category: model_family
+    dimensions: {base_model: mmoe, optimization_strategy: none}
+  ple:
+    model_type: ple
+    gradient_method: none
+    gradient_kwargs: {}
+    category: model_family
+    dimensions: {base_model: ple, optimization_strategy: none}
+  pcgrad:
+    model_type: hard_sharing
+    gradient_method: pcgrad
+    gradient_kwargs: {}
+    category: optimization_strategy
+    dimensions: {base_model: hard_sharing, optimization_strategy: pcgrad}
+  cagrad:
+    model_type: hard_sharing
+    gradient_method: cagrad
+    gradient_kwargs: {c: 0.4}
+    category: optimization_strategy
+    dimensions: {base_model: hard_sharing, optimization_strategy: cagrad}
+  uncertainty_weighting:
+    model_type: hard_sharing
+    gradient_method: uncertainty
+    gradient_kwargs: {num_tasks: 10}
+    category: optimization_strategy
+    dimensions: {base_model: hard_sharing, optimization_strategy: uncertainty}
+  dwa:
+    model_type: hard_sharing
+    gradient_method: dwa
+    gradient_kwargs: {num_tasks: 10, temperature: 2.0}
+    category: optimization_strategy
+    dimensions: {base_model: hard_sharing, optimization_strategy: dwa}
+  mmoe_dwa:
+    model_type: mmoe
+    gradient_method: dwa
+    gradient_kwargs: {num_tasks: 10, temperature: 2.0}
+    category: model_optimization_combination
+    dimensions: {base_model: mmoe, optimization_strategy: dwa}
+  mmoe_cagrad:
+    model_type: mmoe
+    gradient_method: cagrad
+    gradient_kwargs: {c: 0.4}
+    category: model_optimization_combination
+    dimensions: {base_model: mmoe, optimization_strategy: cagrad}

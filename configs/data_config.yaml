@@ -1,0 +1,18 @@
+data:
+  base_path: data
+  sensors: [HE, LB, LF, RF]
+  signals: [acc, freeacc, gyr]
+  sampling_freq: 100
+  preprocessing:
+    normalize: true
+    normalization_type: channelwise_zscore
+    normalization_scope: training_fold_only
+    window_size: 200
+    window_stride: 100
+
+split:
+  method: subject_wise
+  n_folds: 5
+  inner_validation_fraction: 0.2
+  random_seed: 42
+  stratify_by: pathology

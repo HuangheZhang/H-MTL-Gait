@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: "If you use this software, cite the accompanying unpublished manuscript."
+title: "H-MTL: Hierarchical Multi-Task Learning for Comprehensive Gait Assessment"
+type: software
+authors:
+  - family-names: Wu
+    given-names: Peng
+  - family-names: Dong
+    given-names: Huashuo
+  - family-names: Ding
+    given-names: Ziyun
+  - family-names: Gao
+    given-names: Tianyuan
+  - family-names: Kong
+    given-names: Weixin
+  - family-names: Liu
+    given-names: Yitian
+  - family-names: Song
+    given-names: Rui
+  - family-names: Zhang
+    given-names: Huanghe
+    email: zhanghuanghe@sdu.edu.cn
+license: Apache-2.0
+keywords:
+  - gait assessment
+  - wearable inertial sensors
+  - multi-task learning
+abstract: "Software and an example checkpoint accompanying an unpublished manuscript."
+preferred-citation:
+  type: article
+  title: "Hierarchical Multi-Task Learning for Comprehensive Gait Assessment Using Wearable Inertial Sensors"
+  authors:
+    - family-names: Wu
+      given-names: Peng
+    - family-names: Dong
+      given-names: Huashuo
+    - family-names: Ding
+      given-names: Ziyun
+    - family-names: Gao
+      given-names: Tianyuan
+    - family-names: Kong
+      given-names: Weixin
+    - family-names: Liu
+      given-names: Yitian
+    - family-names: Song
+      given-names: Rui
+    - family-names: Zhang
+      given-names: Huanghe
+  year: 2026
+  abstract: "Manuscript status: unpublished."

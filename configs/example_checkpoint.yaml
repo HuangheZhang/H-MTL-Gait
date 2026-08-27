@@ -1,0 +1,52 @@
+checkpoint:
+  path: checkpoints/hmtl_mmoe_dwa_example.pt
+  sha256: 1eca97d7390988a7c96c411fed446ed2fd8038a981b51d8383cb1b008f7bd89a
+  artifact_role: example_pretrained_weight
+method:
+  public_experiment_id: mmoe_dwa
+  model_type: mmoe
+  gradient_method: dwa
+  gradient_kwargs:
+    num_tasks: 10
+    temperature: 2.0
+provenance:
+  source_experiment: 10fold_v38_seed42_repro/mmoe_dwa
+  seed: 42
+  saved_epoch: 16
+  description: historical_weight_from_one_cross_validation_split
+compatibility:
+  input_shape: [B, 200, 36]
+  task_count: 10
+  output_keys:
+    - binary
+    - coarse
+    - fine
+    - regression
+    - vga_class
+    - vga_regression
+    - gender
+    - age
+    - tug
+    - neuro_fine
+training:
+  folds: 10
+  epochs_max: 80
+  batch_size: 32
+  learning_rate: 0.0003
+  optimizer: AdamW
+  weight_decay: 0.0005
+  scheduler: CosineAnnealing
+  warmup_epochs: 8
+  early_stopping_patience: 20
+  monitor: val_binary_accuracy
+  label_smoothing: 0.1
+  regression_loss: MSE
+  regression_weight: 2.0
+preprocessing:
+  historical_method: channelwise_zscore_before_fold_split
+  contains_fold_standardizer_state: false
+  current_release_scope: training_fold_only
+  exact_raw_data_reproduction: requires_retraining_or_matching_per_fold_scaler
+reporting:
+  use_as_example_only: true
+  aggregate_results_require_all_splits: true

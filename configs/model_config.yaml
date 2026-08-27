@@ -1,0 +1,31 @@
+framework:
+  method_registry: configs/paper_mtl_methods.yaml
+  input_shape: [B, 200, 36]
+  task_count: 10
+
+training:
+  batch_size: 32
+  max_epochs: 80
+  early_stopping_patience: 20
+  n_folds: 10
+  seed: 42
+  split_mode: subject_wise
+  dropout: 0.35
+  head_hidden_dim: 64
+  label_smoothing: 0.1
+  aug_p: 0.5
+  reg_weight: 2.0
+  use_mse_loss: true
+  warmup_epochs: 8
+  monitor_metric: val_binary_accuracy
+  monitor_mode: max
+  optimizer:
+    type: AdamW
+    lr: 0.0003
+    weight_decay: 0.0005
+  scheduler:
+    type: CosineAnnealing
+    T_max: 80
+    eta_min: 0.000001
+  normalize_inputs: true
+  normalization_scope: training_fold_only

@@ -1,0 +1,53 @@
+# Python and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Environments and builds
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+
+# Dataset files (root-level only; must not shadow src/data/)
+/data/
+/dataset/
+/datasets/
+*.npy
+*.npz
+*.parquet
+
+# Generated outputs
+results/
+outputs/
+logs/
+*.log
+
+# Checkpoints: retain only the pinned example
+*.pt
+*.pth
+*.ckpt
+!checkpoints/hmtl_mmoe_dwa_example.pt
+
+# Generated preprocessing artifacts
+*scaler*.json
+*scaler*.pt
+preprocessing_state*.json
+preprocessing_state*.pt
+
+# Secrets and local settings
+.env
+.env.*
+*.pem
+*.key
+secrets/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
